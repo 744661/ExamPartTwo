@@ -12,24 +12,26 @@
 <html>
   <head>
     <meta charset="utf-8" />
-
-    <title>Karsten's Ultimate Brick Breaker</title>
-
+  <link rel="stylesheet" href="/style.css"/>
+    <title>Gamedev Canvas Workshop - lesson 10: finishing up</title>
+<text style="width:300%;padding:20%;font:90px/90px comicsans; color:#ff33cc">   
+    Ultimate Brick Breaker 
+  </text>
     <style>
       * {
         padding: 0;
         margin: 0;
       }
       canvas {
-        background: orange;
+        background: black;
         display: block;
         margin: 0 auto;
       }
     </style>
   </head>
-
+<h> Ultimate Brick Breaker</h>
   <body>
-    <canvas id="myCanvas" width="700" height="320"></canvas>
+    <canvas id="myCanvas" width="650" height="400"></canvas>
 
     <script>
       var canvas = document.getElementById("myCanvas");
@@ -56,9 +58,9 @@
 
       var leftPressed = false;
 
-      var brickRowCount = 5;
+      var brickRowCount = 7;
 
-      var brickColumnCount = 3;
+      var brickColumnCount = 5;
 
       var brickWidth = 75;
 
@@ -70,9 +72,9 @@
 
       var brickOffsetLeft = 30;
 
-      var score = 0;
+      var score = 0
 
-      var lives = 3;
+      var lives = 5
 
       var bricks = [];
 
@@ -133,7 +135,7 @@
                 score++;
 
                 if (score == brickRowCount * brickColumnCount) {
-                  alert("YOU WIN, CONGRATS!");
+                  alert("Wow you won, There is now reward.");
 
                   document.location.reload();
                 }
@@ -148,7 +150,7 @@
 
         ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
 
-        ctx.fillStyle = "#0095DD";
+        ctx.fillStyle = "#6600ff";
 
         ctx.fill();
 
@@ -165,7 +167,7 @@
           paddleHeight
         );
 
-        ctx.fillStyle = "#0095DD";
+        ctx.fillStyle = "#ff33cc";
 
         ctx.fill();
 
@@ -188,7 +190,7 @@
 
               ctx.rect(brickX, brickY, brickWidth, brickHeight);
 
-              ctx.fillStyle = "#0095DD";
+              ctx.fillStyle = "#333399";
 
               ctx.fill();
 
@@ -199,19 +201,19 @@
       }
 
       function drawScore() {
-        ctx.font = "16px Arial";
+        ctx.font = "20px Comicsans";
 
-        ctx.fillStyle = "#0095DD";
+        ctx.fillStyle = "#ff33cc";
 
         ctx.fillText("Score: " + score, 8, 20);
       }
 
       function drawLives() {
-        ctx.font = "16px Arial";
+        ctx.font = "20px Comicsans";
 
-        ctx.fillStyle = "#0095DD";
+        ctx.fillStyle = "#ff33cc";
 
-        ctx.fillText("Lives: " + lives, canvas.width - 65, 20);
+        ctx.fillText("Lives: " + lives, canvas.width - 69, 20);
       }
 
       function draw() {
@@ -242,7 +244,7 @@
             lives--;
 
             if (!lives) {
-              alert("GAME OVER");
+              alert("You Suck!");
 
               document.location.reload();
             } else {
